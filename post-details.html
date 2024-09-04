@@ -26,67 +26,32 @@
             console.log(post.id)
 
 
-            const postDetailsHtml = `
-                  <h1>${post.title}</h1>
-                        <p>${post.body}</p>
-                            `;
-            postDetailsContainer.innerHTML = postDetailsHtml;
+            // const postDetailsHtml = `
+            //       <h1>${post.title}</h1>
+            //             <p>${post.body}</p>
+            //                 `;
+            // postDetailsContainer.innerHTML = postDetailsHtml;
 
 
+            for (const postElement of post) {
+                // console.log(postElement)
+                // console.log(postElement.id)
+                // console.log(post.id)
 
 
+                if (postElement.id === `${post.id}`){
 
+               const postTitle = document.createElement('h4')
+                postTitle.innerText = `${postElement.title}`
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        //     for (const postElement of post) {
-        //         // console.log(postElement)
-        //         // console.log(postElement.id)
-        //         // console.log(post.id)
-        //
-        //
-        //         if (postElement.id === `${post.id}`){
-        //
-        //        const postTitle = document.createElement('h4')
-        //         postTitle.innerText = `${postElement.title}`
-        //
-        //         const postForBody = document.createElement('p')
-        //         postForBody.innerText = `${postElement.body}`
-        //     //
-        //     postDetailsContainer.append(postTitle,postForBody)
-        // } else{
-        //             console.log('Not found')
-        //         }
-        //     }
+                const postForBody = document.createElement('p')
+                postForBody.innerText = `${postElement.body}`
+            //
+            postDetailsContainer.append(postTitle,postForBody)
+        } else{
+                    console.log('Not found')
+                }
+            }
         } catch (error) {
             console.error('Error fetching post details:', error);
         }
