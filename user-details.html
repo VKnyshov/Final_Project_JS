@@ -128,7 +128,6 @@
             divForPost.style.paddingLeft= '25%'
 
 
-
             const butForPostsTitle = document.createElement('button')
             butForPostsTitle.style.width = '90%'
             butForPostsTitle.innerText = 'Post of current user'
@@ -147,52 +146,27 @@
                     divForTitleOfThePost.style.flexWrap = 'wrap'
                     divForTitleOfThePost.style.gap = '20px'
                     divForTitleOfThePost.style.padding = '0 50px'
-                    // divForTitleOfThePost.style.border = '1px solid red'
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+                    divForTitleOfThePost.style.border = '1px solid red'
 
 
                     for (const post of posts) {
                         if (post.userId === user.id) {
 
-
                             const divOneComment = document.createElement('div')
                             divOneComment.style.border = '1px solid'
                             divOneComment.style.width = '340px'
                             divOneComment.style.height = '100px'
-
                             divOneComment.style.display = 'flex'
                             divOneComment.style.alignItems = 'centre'
                             divOneComment.style.justifyContent = 'space-between'
                             divOneComment.style.flexDirection = 'column'
 
-
+                            console.log(post.id)
 
 
                             const pTitle = document.createElement('h4')
-                            pTitle.innerText = post.title
+                            pTitle.innerText = `${post.id} ${post.title}`
                             pTitle.style.paddingLeft = '20px'
-
-
 
 
                             const butForPost = document.createElement('button')
@@ -200,7 +174,7 @@
                             // butForPost.style.width = '90%'
                             butForPost.onclick = function () {
                             // location.href = `https://jsonplaceholder.typicode.com/users/${postId}/posts`
-                                location.href = `post-details.html?users/${postId}/posts`
+                                location.href = `post-details.html?users/${postId}/${post.id}`
                             }
 
 
