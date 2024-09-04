@@ -7,7 +7,6 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Chose your user</title>
 
-
     <style>
         * {
             margin: 0;
@@ -15,44 +14,45 @@
             box-sizing: border-box;
         }
 
+        body {
+            background-color: black;
+        }
     </style>
 </head>
-
 <body>
-
-
-<button id="post-button"></button>
-
-
 
 
 <script>
     const usersContainer = document.createElement('div');
     usersContainer.style.display = 'flex'
     usersContainer.style.flexWrap = 'wrap'
-    usersContainer.style.width = '600px'
-    usersContainer.style.margin = '10px'
-    usersContainer.style.gap = '30px'
-
+    usersContainer.style.width = '100%'
+    usersContainer.style.padding = '2% 5%'
+    usersContainer.style.gap = '5px'
 
     async function fetchUsers() {
         try {
             const response = await fetch('https://jsonplaceholder.typicode.com/users');
             const users = await response.json();
             for (const user of users) {
-                console.log(user)
-
                 const userBlock = document.createElement('div')
-                userBlock.style.border = '1px solid'
-                userBlock.style.width = '260px'
-
+                userBlock.style.width = '19%'
+                userBlock.style.borderRadius = '10px'
 
                 const h2User = document.createElement('h3')
                 h2User.innerText = `ID:${user.id} - ${user.name}`
+                h2User.style.backgroundColor = 'yellow'
+                h2User.style.borderRadius = '10px 10px 5px 5px '
+                h2User.style.padding = '13px 0 0 10px'
+                h2User.style.height = '50px'
 
                 const butForUser = document.createElement('button')
                 butForUser.innerText = 'User details'
+                butForUser.style.backgroundColor = 'gray'
+                butForUser.style.borderRadius = '0 0 10px 10px'
+                butForUser.style.fontWeight = '700'
                 butForUser.style.width = '100%'
+                butForUser.style.height = '50px'
                 butForUser.onclick = function () {
                     location.href = `user-details.html?id=${user.id}`
                 }
@@ -64,11 +64,8 @@
         }
         document.body.append(usersContainer)
     }
+
     fetchUsers()
-
-
-
-
 
 </script>
 </body>
